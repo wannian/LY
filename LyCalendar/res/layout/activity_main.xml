@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center" >
+    android:layout_height="match_parent" >
 
     <include
         android:id="@+id/month_view"
         layout="@layout/month_view" />
+
+    <FrameLayout
+        android:id="@+id/control_container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|top" />
 
     <Button
         android:id="@+id/control_view"
@@ -14,10 +19,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|left"
         android:text="控制 " />
-
-    <FrameLayout
-        android:id="@+id/control_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
 </FrameLayout>

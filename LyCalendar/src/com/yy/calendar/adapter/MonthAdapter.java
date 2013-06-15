@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.yy.calendar.CalendarUtil;
 import com.yy.calendar.CalendarUtil.DayState;
 import com.yy.calendar.Day;
-import com.yy.calendar.Logging;
 import com.yy.calendar.R;
 import com.yy.calendar.view.WeekItemView;
 
@@ -109,7 +108,6 @@ public class MonthAdapter extends BaseAdapter {
         View content = view.findViewById(R.id.content);
         dayView.setText(String.valueOf(day.getDate()));
         lundarView.setText(day.getLundar().getDisplay());
-        Logging.i("gridView.getCheckedItemPosition:" + gridView.getCheckedItemPosition());
         if (gridView.getCheckedItemPosition() == position) {
             content.setBackgroundColor(checkedDayColor);
         } else {

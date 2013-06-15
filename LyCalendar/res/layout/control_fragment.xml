@@ -1,14 +1,1 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="150dip"
-    android:layout_height="match_parent"
-    android:background="#5fff0000" >
-
-    <LinearLayout
-        android:id="@+id/content_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-    </LinearLayout>
-
-</RelativeLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"    android:layout_width="200dip"    android:layout_height="match_parent"    android:background="@android:color/white"    android:orientation="vertical" >    <Button        android:id="@+id/today"        android:layout_width="match_parent"        android:layout_height="wrap_content"        android:text="Today" />    <Button        android:id="@+id/prev_month"        android:layout_width="match_parent"        android:layout_height="wrap_content"        android:text="上一月" />    <Button        android:id="@+id/next_month"        android:layout_width="match_parent"        android:layout_height="wrap_content"        android:text="下一月" /></LinearLayout>
