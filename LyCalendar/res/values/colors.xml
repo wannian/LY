@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="month_view_title_background">#ffcccccc</color>
+    <color name="month_view_item_week_background">#ffaaaaaa</color>
+    <color name="month_view_item_prev_day_background">#5fcccccc</color>
+    <color name="month_view_item_day_background_color">#5fffffff</color>
+    <color name="month_view_item_current_day_background">#5fffff00</color>
+    <color name="month_view_item_checked_day_background">#efe47e7c</color>
+</resources>

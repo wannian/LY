@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yy.calendar.view.WeekItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/month_view_item_week_height"
+    android:background="@color/month_view_item_week_background" >
+
+    <TextView
+        android:id="@+id/week"
+        style="@style/text_weekend"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" />
+
+</com.yy.calendar.view.WeekItemView>

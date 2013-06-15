@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/month_view_item_height" >
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/day"
+            style="@style/text_day" />
+
+        <TextView
+            android:id="@+id/lundar"
+            style="@style/text_lundar"
+            android:layout_marginTop="-5dip" />
+    </LinearLayout>
+
+</FrameLayout>

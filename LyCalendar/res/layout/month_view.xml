@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yy.calendar.view.MonthView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/month_view_title_height"
+        android:layout_marginBottom="1dip"
+        android:background="@color/month_view_title_background"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/prev_month"
+            style="@android:style/TextAppearance.Holo.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_prev_month"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@android:style/TextAppearance.Holo.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/next_month"
+            style="@android:style/TextAppearance.Holo.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_next_month"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/today"
+            style="@android:style/TextAppearance.Holo.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_today"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.yy.calendar.view.MonthGridView
+            android:id="@+id/month_grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/month_view_margin_left"
+            android:background="@android:color/transparent"
+            android:choiceMode="singleChoice"
+            android:columnWidth="2000dip"
+            android:horizontalSpacing="@dimen/month_view_horizontal_spacing"
+            android:numColumns="7"
+            android:verticalSpacing="@dimen/month_view_vertical_spacing" />
+    </FrameLayout>
+
+</com.yy.calendar.view.MonthView>

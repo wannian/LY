@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="month_view_item_height">45dip</dimen>
+    <dimen name="month_view_item_week_height">28dip</dimen>
+    <dimen name="month_view_horizontal_spacing">1dip</dimen>
+    <dimen name="month_view_vertical_spacing">1dip</dimen>
+    <dimen name="month_view_margin_left">0dip</dimen>
+    <dimen name="month_view_title_height">32dip</dimen>
+
+</resources>

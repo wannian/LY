@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="text_weekends">
+        <item>@string/text_sunday</item>
+        <item>@string/text_monday</item>
+        <item>@string/text_tuesday</item>
+        <item>@string/text_wednesday</item>
+        <item>@string/text_thursday</item>
+        <item>@string/text_friday</item>
+        <item>@string/text_saturday</item>
+    </string-array>
+
+</resources>
