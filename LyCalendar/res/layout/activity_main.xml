@@ -3,15 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <include
-        android:id="@+id/month_view"
-        layout="@layout/month_view" />
-
     <FrameLayout
         android:id="@+id/control_container"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="left|top" />
+
+    <include
+        android:id="@+id/month_view"
+        layout="@layout/month_view" />
 
     <Button
         android:id="@+id/control_view"

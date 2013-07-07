@@ -11,14 +11,14 @@ import android.view.animation.LayoutAnimationController;
 
 import com.yy.calendar.R;
 
-public class FlyAnimationInterface implements AnimationInterface<Calendar> {
+public class CalendarFlyAnimation implements AnimationInterface<Calendar> {
     private AnimationInterface.Callback<Calendar> callback;
     private LayoutAnimationController inNextController;
     private LayoutAnimationController inPrevController;
     private LayoutAnimationController outNextController;
     private LayoutAnimationController outPrevController;
 
-    public FlyAnimationInterface(Context context, Callback<Calendar> callback) {
+    public CalendarFlyAnimation(Context context, Callback<Calendar> callback) {
         this.callback = callback;
         inNextController = new LayoutAnimationController(
                 AnimationUtils.loadAnimation(context, R.anim.anim_fly_next_in), 0.2f);

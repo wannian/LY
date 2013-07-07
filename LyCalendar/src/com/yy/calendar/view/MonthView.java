@@ -51,7 +51,7 @@ public class MonthView extends LinearLayout implements View.OnClickListener, Mon
             final MonthView e = this.e.get();
             switch (msg.what) {
                 case MSG_BACKGROUND_NUMBER:
-                    new LoadBackgroundTask(Integer.parseInt(msg.obj.toString()), e.gridView.getWidth(),
+                    new LoadBackgroundTask(e.getContext(), Integer.parseInt(msg.obj.toString()), e.gridView.getWidth(),
                             e.gridView.getHeight(), new LoadBackgroundTask.Callback() {
                                 @Override
                                 public void onEnd(Bitmap bitmap) {
@@ -74,7 +74,7 @@ public class MonthView extends LinearLayout implements View.OnClickListener, Mon
 
     @Override
     protected void onFinishInflate() {
-        animationInterface = new FlyAnimationInterface(getContext(), this);
+        animationInterface = new CalendarFlyAnimation(getContext(), this);
 
         nextMonth = (Button) findViewById(R.id.next_month);
         nextMonth.setOnClickListener(this);
@@ -96,6 +96,12 @@ public class MonthView extends LinearLayout implements View.OnClickListener, Mon
         currentCalendar = Calendar.getInstance();
         setTitleDate(currentCalendar);
         change2Date(currentCalendar, false);
+    }
+
+    public void setListWidthAnim(int value) {
+        int width = getWidth();
+        setLeft(value);
+        setRight(value + width);
     }
 
     public void setAnimationInterface(AnimationInterface<Calendar> animationInterface) {

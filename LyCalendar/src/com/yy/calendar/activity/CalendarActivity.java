@@ -1,5 +1,7 @@
 package com.yy.calendar.activity;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -7,15 +9,12 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnticipateInterpolator;
-import android.view.animation.OvershootInterpolator;
-import android.view.animation.TranslateAnimation;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 
 import com.yy.calendar.R;
-import com.yy.calendar.view.FlyAnimationInterface;
 import com.yy.calendar.view.MonthView;
+import com.yy.calendar.view.CalendarTranslateAnimation;
 
 public class CalendarActivity extends Activity implements OnClickListener {
 
@@ -23,16 +22,21 @@ public class CalendarActivity extends Activity implements OnClickListener {
     private MonthView monthView;
     private ViewGroup controlContainer;
 
+    public static final int CONTROL_STATUS_SHOW_MIDDEL = 0;
+    public static final int CONTROL_STATUS_SHOW_LEFT = 1;
+    private int controlStatus;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         controlView = (Button) findViewById(R.id.control_view);
         controlView.setOnClickListener(this);
+
         monthView = (MonthView) findViewById(R.id.month_view);
-        monthView.setAnimationInterface(new FlyAnimationInterface(getApplicationContext(), monthView));
+        monthView.setAnimationInterface(new CalendarTranslateAnimation(getApplicationContext(), monthView));
+
         controlContainer = (ViewGroup) findViewById(R.id.control_container);
-        controlContainer.setVisibility(View.GONE);
         addControlFragment();
     }
 
@@ -58,29 +62,30 @@ public class CalendarActivity extends Activity implements OnClickListener {
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (controlContainer.getVisibility() == View.VISIBLE) {
-            controlContainer.setVisibility(View.GONE);
+        if (controlStatus == CONTROL_STATUS_SHOW_LEFT) {
+            controlStatus = CONTROL_STATUS_SHOW_MIDDEL;
             hideControlContainer();
         } else {
-            controlContainer.setVisibility(View.VISIBLE);
+            controlStatus = CONTROL_STATUS_SHOW_LEFT;
             showControlContainer();
         }
         return false;
     }
 
+    private static final String PROP_LIST_WIDTH = "listWidthAnim";
+
     private void showControlContainer() {
-        TranslateAnimation animation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, -2,
-                Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0);
-        animation.setDuration(1000);
-        animation.setInterpolator(new OvershootInterpolator());
-        controlContainer.startAnimation(animation);
+        PropertyValuesHolder values = PropertyValuesHolder.ofInt(PROP_LIST_WIDTH, monthView.getLeft(),
+                controlContainer.getWidth());
+        final ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(monthView, values).setDuration(500);
+        animator.setInterpolator(new DecelerateInterpolator());
+        animator.start();
     }
 
     private void hideControlContainer() {
-        TranslateAnimation animation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0,
-                Animation.RELATIVE_TO_SELF, -1, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0);
-        animation.setDuration(1000);
-        animation.setInterpolator(new AnticipateInterpolator());
-        controlContainer.startAnimation(animation);
+        PropertyValuesHolder values = PropertyValuesHolder.ofInt(PROP_LIST_WIDTH, monthView.getLeft(), 0);
+        final ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(monthView, values).setDuration(500);
+        animator.setInterpolator(new DecelerateInterpolator());
+        animator.start();
     }
 }
